@@ -49,10 +49,10 @@ export const ScrollZoomIndicator = () => {
     <aside
       className="scroll-zoom-indicator"
       aria-label="Scroll zoom indicator"
-      style={{ '--zoom-track-height': `${TRACK_HEIGHT}px`, '--zoom-thumb-size': `${THUMB_SIZE}px` }}
+      style={{ '--zoom-thumb-size': `${THUMB_SIZE}px` }}
     >
       <div className="scroll-zoom-track-wrapper">
-        <div className="scroll-zoom-track">
+        <div className="scroll-zoom-track" style={{ height: `${TRACK_HEIGHT}px` }}>
           <div className="scroll-zoom-progress" style={{ height: `${progressPercent}%` }} />
           <div
             className="scroll-zoom-thumb"
@@ -63,7 +63,7 @@ export const ScrollZoomIndicator = () => {
             }}
           />
         </div>
-        <ul className="scroll-zoom-marks" aria-hidden="true">
+        <ul className="scroll-zoom-marks" aria-hidden="true" style={{ height: `${TRACK_HEIGHT}px` }}>
           {zoomMarks.map((mark) => (
             <li key={mark} className="scroll-zoom-mark">
               <span className="scroll-zoom-mark-line" />

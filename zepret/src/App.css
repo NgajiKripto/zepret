@@ -99,6 +99,7 @@
   position: relative;
   width: 6px;
   height: var(--zoom-track-height, 280px);
+  flex: 0 0 auto;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.18);
   overflow: hidden;
@@ -131,6 +132,7 @@
   padding: 0;
   list-style: none;
   height: var(--zoom-track-height, 280px);
+  flex: 0 0 auto;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
