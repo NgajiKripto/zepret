@@ -74,3 +74,100 @@
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
 }
+
+/* Scroll Zoom Indicator */
+.scroll-zoom-indicator {
+  position: fixed;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  pointer-events: none;
+}
+
+.scroll-zoom-track-wrapper {
+  display: flex;
+  align-items: stretch;
+  gap: 0.625rem;
+}
+
+.scroll-zoom-track {
+  position: relative;
+  width: 6px;
+  height: 280px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+  overflow: hidden;
+}
+
+.scroll-zoom-progress {
+  position: absolute;
+  inset: 0;
+  transform-origin: bottom;
+  background: #fff;
+}
+
+.scroll-zoom-thumb {
+  position: absolute;
+  left: -6px;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 2px solid #fff;
+  background: #fff;
+  box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.18);
+}
+
+.scroll-zoom-marks {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.scroll-zoom-mark {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.scroll-zoom-mark-line {
+  width: 7px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.75);
+}
+
+.scroll-zoom-mark-label {
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.9;
+}
+
+.scroll-zoom-value {
+  min-width: 2.25rem;
+  text-align: center;
+  color: #fff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 768px) {
+  .scroll-zoom-indicator {
+    right: 0.5rem;
+    transform: translateY(-50%) scale(0.9);
+    transform-origin: right center;
+  }
+}
