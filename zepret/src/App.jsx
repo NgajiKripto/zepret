@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import TrueFocus from './components/TrueFocus'
+import { ResultsShowcase } from './components/ResultsShowcase'
 import './App.css'
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
 
       <div className="ticks"></div>
       <section id="spacer"></section>
+      
+      {/* Results Showcase Section */}
+      <ResultsShowcase />
     </>
   )
 }
