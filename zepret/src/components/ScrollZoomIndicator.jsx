@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
-import { motion, useMotionValueEvent, useScroll, useSpring, useTransform } from 'motion/react';
+import { useMotionValueEvent, useScroll, useSpring, useTransform } from 'motion/react';
 
 const MIN_ZOOM = 10;
 const MAX_ZOOM = 100;
@@ -10,13 +10,14 @@ const THUMB_SIZE = 18;
 export const ScrollZoomIndicator = () => {
   const { scrollYProgress } = useScroll();
   const smoothProgress = useSpring(scrollYProgress, { stiffness: 140, damping: 25 });
-  const thumbY = useTransform(smoothProgress, [0, 1], [TRACK_HEIGHT - THUMB_SIZE, 0]);
   const zoomValue = useTransform(smoothProgress, [0, 1], [MIN_ZOOM, MAX_ZOOM]);
   const [isScrolling, setIsScrolling] = useState(false);
   const [currentZoom, setCurrentZoom] = useState(MIN_ZOOM);
+  const [progress, setProgress] = useState(0);
 
   useMotionValueEvent(scrollYProgress, 'change', () => setIsScrolling(true));
   useMotionValueEvent(zoomValue, 'change', (latest) => setCurrentZoom(Math.round(latest)));
+  useMotionValueEvent(smoothProgress, 'change', (latest) => setProgress(latest));
 
   useEffect(() => {
     if (!isScrolling) return undefined;
@@ -36,12 +37,14 @@ export const ScrollZoomIndicator = () => {
     <aside className="scroll-zoom-indicator" aria-label="Scroll zoom indicator">
       <div className="scroll-zoom-track-wrapper">
         <div className="scroll-zoom-track">
-          <motion.div className="scroll-zoom-progress" style={{ scaleY: smoothProgress }} />
-          <motion.div
+          <div className="scroll-zoom-progress" style={{ height: `${Math.round(progress * 100)}%` }} />
+          <div
             className="scroll-zoom-thumb"
-            style={{ y: thumbY }}
-            animate={isScrolling ? { scale: 1.2, opacity: 1 } : { scale: 1, opacity: 0.85 }}
-            transition={{ duration: 0.2 }}
+            style={{
+              bottom: `${Math.round(progress * (TRACK_HEIGHT - THUMB_SIZE))}px`,
+              transform: isScrolling ? 'scale(1.2)' : 'scale(1)',
+              opacity: isScrolling ? 1 : 0.85,
+            }}
           />
         </div>
         <ul className="scroll-zoom-marks" aria-hidden="true">
@@ -53,7 +56,7 @@ export const ScrollZoomIndicator = () => {
           ))}
         </ul>
       </div>
-      <motion.div className="scroll-zoom-value" aria-hidden="true">{currentZoom}</motion.div>
+      <div className="scroll-zoom-value" aria-hidden="true">{currentZoom}</div>
     </aside>
   );
 };

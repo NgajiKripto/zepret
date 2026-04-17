@@ -106,9 +106,12 @@
 
 .scroll-zoom-progress {
   position: absolute;
-  inset: 0;
-  transform-origin: bottom;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 0;
   background: #fff;
+  transition: height 0.12s linear;
 }
 
 .scroll-zoom-thumb {
@@ -120,6 +123,7 @@
   border: 2px solid #fff;
   background: #fff;
   box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.18);
+  transition: transform 0.2s ease, opacity 0.2s ease, bottom 0.12s linear;
 }
 
 .scroll-zoom-marks {
