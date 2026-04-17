@@ -98,7 +98,6 @@
 .scroll-zoom-track {
   position: relative;
   width: 6px;
-  height: 280px;
   flex: 0 0 auto;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.18);
@@ -131,7 +130,6 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  height: 280px;
   flex: 0 0 auto;
   display: flex;
   flex-direction: column;
