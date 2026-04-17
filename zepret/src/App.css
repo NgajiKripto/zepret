@@ -98,7 +98,7 @@
 .scroll-zoom-track {
   position: relative;
   width: 6px;
-  height: 280px;
+  height: var(--zoom-track-height, 280px);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.18);
   overflow: hidden;
@@ -116,9 +116,9 @@
 
 .scroll-zoom-thumb {
   position: absolute;
-  left: -6px;
-  width: 18px;
-  height: 18px;
+  left: calc((6px - var(--zoom-thumb-size, 18px)) / 2);
+  width: var(--zoom-thumb-size, 18px);
+  height: var(--zoom-thumb-size, 18px);
   border-radius: 999px;
   border: 2px solid #fff;
   background: #fff;
@@ -130,7 +130,7 @@
   margin: 0;
   padding: 0;
   list-style: none;
-  height: 280px;
+  height: var(--zoom-track-height, 280px);
   display: flex;
   flex-direction: column;
   justify-content: space-between;

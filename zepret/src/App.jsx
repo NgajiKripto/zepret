@@ -1,12 +1,9 @@
-import { useState } from 'react'
 import TrueFocus from './components/TrueFocus'
 import { ResultsShowcase } from './components/ResultsShowcase'
 import { ScrollZoomIndicator } from './components/ScrollZoomIndicator'
 import './App.css'
 
 function App() {
-  const [_, setCount] = useState(0)
-  
   return (
     <>
       <ScrollZoomIndicator />
@@ -28,7 +25,6 @@ function App() {
           </p>
           <button
             className="cta-button"
-            onClick={() => setCount((count) => count + 1)}
           >
             Zepret Sekarang
           </button>
