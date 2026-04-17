@@ -58,3 +58,19 @@
 #spacer {
   height: 100px;
 }
+
+/* Results Showcase Styles */
+.showcase-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.showcase-card img {
+  transition: transform 0.5s ease;
+}
+
+.glass-panel {
+  background: rgba(53, 52, 55, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
