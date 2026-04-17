@@ -49,7 +49,7 @@ export const ScrollZoomIndicator = () => {
     <aside
       className="scroll-zoom-indicator"
       aria-label="Scroll zoom indicator"
-      style={{ '--zoom-thumb-size': `${THUMB_SIZE}px` }}
+      style={{ '--zoom-track-height': `${TRACK_HEIGHT}px`, '--zoom-thumb-size': `${THUMB_SIZE}px` }}
     >
       <div className="scroll-zoom-track-wrapper">
         <div className="scroll-zoom-track" style={{ height: `${TRACK_HEIGHT}px` }}>
